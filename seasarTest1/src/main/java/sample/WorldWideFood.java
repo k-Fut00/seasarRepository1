@@ -6,16 +6,17 @@ import org.seasar.framework.container.SingletonS2Container;
 import org.seasar.framework.container.factory.SingletonS2ContainerFactory;
 
 public class WorldWideFood {
-    public WorldFoods kyoto;
+    private static String DELICIOUS_FOOD = "Ç®Ç¢ÇµÇ¢Ç‡ÇÃÇè–âÓ!!";
+    public WorldFoods Food;
 
     public void foodSet(){
-        kyoto.food();
+        Food.food();
     }
 
     public static void main(String[] args){
         SingletonS2ContainerFactory.init();
         WorldWideFood world = SingletonS2Container.getComponent("WorldWideFood");
-        System.out.println("Ç®Ç¢ÇµÇ¢Ç‡ÇÃÇè–âÓ!!");
+        System.out.println(DELICIOUS_FOOD);
         world.foodSet();
         SingletonS2ContainerFactory.destroy();
 

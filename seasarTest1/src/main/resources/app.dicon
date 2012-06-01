@@ -2,11 +2,12 @@
 <!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.3//EN"
   "http://www.seasar.org/dtd/components23.dtd">
 <components>
-      <component name="Kyoto" class="sample.Kyoto" >
+      <component name="Food" class="sample.Kyoto" >
       <aspect pointcut="food">
             <component class="sample.DeliciousFoods" />
       </aspect>
     </component>
+
 
     <component name="WorldWideFood" class="sample.WorldWideFood" />
 
