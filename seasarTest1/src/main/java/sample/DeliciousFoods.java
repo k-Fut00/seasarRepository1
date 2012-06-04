@@ -1,11 +1,15 @@
 package sample;
 
+import java.io.InputStream;
+import java.util.Properties;
+
 import org.aopalliance.intercept.MethodInvocation;
 import org.seasar.framework.aop.interceptors.AbstractInterceptor;
 
+import setting.SettingCode;
+
 public class DeliciousFoods extends AbstractInterceptor {
-    private String FIRST_MESSAGE = "さてさて今日紹介するのは";
-    private String LAST_MESSAGE = "どうでしたか。";
+    SettingCode setCode = new SettingCode();
     /**
      *
      */
@@ -13,9 +17,11 @@ public class DeliciousFoods extends AbstractInterceptor {
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        System.out.println(FIRST_MESSAGE);
+        //propetiesファイル呼び出し
+        Properties props = setCode.settingProperties();
+        System.out.println(props.getProperty("FIRST_MESSAGE"));
         Object ret = invocation.proceed();
-        System.out.println(LAST_MESSAGE);
+        System.out.println(props.getProperty("LAST_MESSAGE"));
         return ret;
 
     }
